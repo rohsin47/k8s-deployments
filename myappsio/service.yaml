@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: myappsio
+  name: myappsio
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    app: myappsio
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: myappsio
+  name: myappsio
+  namespace: default
+  resourceVersion: "3584"
+  uid: 43ed5faa-4c4b-465d-a766-d35d2be49299
+spec:
+  clusterIP: 10.111.155.86
+  clusterIPs:
+  - 10.111.155.86
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 31715
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: myappsio
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

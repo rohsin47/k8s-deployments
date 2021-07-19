@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: myappsio
+  name: myappsio
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myappsio
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: myappsio
+    spec:
+      containers:
+      - image: rohsin47/myappsio:latest
+        name: myappsio
+        ports:
+            - containerPort: 8080
+        resources: {}
+        imagePullPolicy: Always
