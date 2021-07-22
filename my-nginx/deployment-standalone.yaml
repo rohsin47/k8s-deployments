@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-nginx
+  name: nginx-standalone
   labels:
-    app: my-nginx
+    app: nginx-standalone
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: my-nginx
+      app: nginx-standalone
   template:
     metadata:
       labels:
-        app: my-nginx
+        app: nginx-standalone
     spec:
       containers:
       - image: nginx:alpine
-        name: my-nginx
+        name: nginx-standalone
         ports:
           - containerPort: 80
         resources:
